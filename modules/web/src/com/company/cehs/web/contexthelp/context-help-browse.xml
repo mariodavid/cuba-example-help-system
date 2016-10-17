@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<window xmlns="http://schemas.haulmont.com/cuba/window.xsd"
+        caption="msg://browseCaption"
+        class="com.company.cehs.web.contexthelp.ContextHelpBrowse"
+        focusComponent="contextHelpsTable"
+        lookupComponent="contextHelpsTable"
+        messagesPack="com.company.cehs.web.contexthelp">
+    <dsContext>
+        <collectionDatasource id="contextHelpsDs"
+                              class="com.company.cehs.entity.ContextHelp"
+                              view="_local">
+            <query>
+                <![CDATA[select e from cehs$ContextHelp e]]>
+            </query>
+        </collectionDatasource>
+    </dsContext>
+    <layout expand="contextHelpsTable"
+            spacing="true">
+        <filter id="filter"
+                applyTo="contextHelpsTable"
+                datasource="contextHelpsDs">
+            <properties include=".*"/>
+        </filter>
+        <table id="contextHelpsTable"
+               width="100%">
+            <actions>
+                <action id="create"/>
+                <action id="edit"/>
+                <action id="remove"/>
+            </actions>
+            <columns>
+                <column id="screenId"/>
+                <column id="helpText"/>
+            </columns>
+            <rows datasource="contextHelpsDs"/>
+            <rowsCount/>
+            <buttonsPanel id="buttonsPanel"
+                          alwaysVisible="true">
+                <button id="createBtn"
+                        action="contextHelpsTable.create"/>
+                <button id="editBtn"
+                        action="contextHelpsTable.edit"/>
+                <button id="removeBtn"
+                        action="contextHelpsTable.remove"/>
+            </buttonsPanel>
+        </table>
+    </layout>
+</window>
