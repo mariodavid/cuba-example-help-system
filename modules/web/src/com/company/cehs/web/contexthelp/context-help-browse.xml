@@ -30,7 +30,6 @@
             </actions>
             <columns>
                 <column id="screenId"/>
-                <column id="helpText"/>
             </columns>
             <rows datasource="contextHelpsDs"/>
             <rowsCount/>

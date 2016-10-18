@@ -26,7 +26,9 @@ create table CEHS_CONTEXT_HELP (
     DELETED_BY varchar(50),
     --
     SCREEN_ID varchar(255) not null,
-    HELP_TEXT longvarchar,
+    GENERAL_HELP_TEXT longvarchar,
+    KEYBOARD_SHORTCUTS_TEXT longvarchar,
+    USER_DEFINED_HELP_TEXT longvarchar,
     --
     primary key (ID)
 )^

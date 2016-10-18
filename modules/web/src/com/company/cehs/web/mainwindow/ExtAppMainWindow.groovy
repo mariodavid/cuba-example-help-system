@@ -1,5 +1,7 @@
-package com.company.cehs.web.mainwindow;
+package com.company.cehs.web.mainwindow
 
+import com.company.cehs.entity.ContextHelp;
+import com.company.cehs.service.ContextHelpService;
 import com.haulmont.bali.util.ParamsMap;
 import com.haulmont.cuba.client.ClientConfig;
 import com.haulmont.cuba.core.global.Configuration;
@@ -64,6 +66,18 @@ public class ExtAppMainWindow extends AbstractMainWindow {
     @Inject
     protected Configuration configuration;
 
+    @Inject
+    protected ContextHelpService contextHelpService;
+
+    @Inject
+    Label generalHelpLabel
+
+    @Inject
+    Label keyboardShortcutLabel
+
+    @Inject
+    Label userDefinedHelpLabel
+
     @Override
     public void init(Map<String, Object> params) {
         super.init(params);
@@ -81,14 +95,18 @@ public class ExtAppMainWindow extends AbstractMainWindow {
             contextMenu.setOpenAutomatically(true);
             contextMenu.setAsContextMenuOf(logoImage.unwrap(com.vaadin.ui.AbstractComponent.class));
             ContextMenu.ContextMenuItem analyzeLayout = contextMenu.addItem(messages.getMainMessage("actions.analyzeLayout"));
-            analyzeLayout.addItemClickListener(event -> {
-                LayoutAnalyzer analyzer = new LayoutAnalyzer();
-                List<LayoutTip> tipsList = analyzer.analyze(this);
 
-                if (tipsList.isEmpty()) {
-                    showNotification("No layout problems found", NotificationType.HUMANIZED);
-                } else {
-                    openWindow("layoutAnalyzer", WindowManager.OpenType.DIALOG, ParamsMap.of("tipsList", tipsList));
+            analyzeLayout.addItemClickListener(new ContextMenu.ContextMenuItemClickListener() {
+                @Override
+                void contextMenuItemClicked(ContextMenu.ContextMenuItemClickEvent contextMenuItemClickEvent) {
+                    LayoutAnalyzer analyzer = new LayoutAnalyzer();
+                    List<LayoutTip> tipsList = analyzer.analyze(this);
+
+                    if (tipsList.isEmpty()) {
+                        showNotification("No layout problems found", Frame.NotificationType.HUMANIZED);
+                    } else {
+                        openWindow("layoutAnalyzer", WindowManager.OpenType.DIALOG, ParamsMap.of("tipsList", tipsList));
+                    }
                 }
             });
         }
@@ -146,9 +164,17 @@ public class ExtAppMainWindow extends AbstractMainWindow {
 
                     if (helpSplit.getSplitPosition() == 100) {
 
-                        
-                        helpSplit.setSplitPosition(50);
 
+                        ContextHelp contextHelp = contextHelpService.getContextHelpForScreen(getWindowManager().getOpenWindows()[0]?.id)
+
+
+                        if(contextHelp) {
+                            generalHelpLabel.setValue(contextHelp?.generalHelpText)
+                            keyboardShortcutLabel.setValue(contextHelp?.keyboardShortcutsText)
+                            userDefinedHelpLabel.setValue(contextHelp?.userDefinedHelpText)
+
+                        }
+                        helpSplit.setSplitPosition(75);
                     }
                     else {
                         helpSplit.setSplitPosition(100);

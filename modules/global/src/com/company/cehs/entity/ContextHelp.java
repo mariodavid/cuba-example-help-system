@@ -11,12 +11,45 @@ import com.haulmont.cuba.core.entity.StandardEntity;
 public class ContextHelp extends StandardEntity {
     private static final long serialVersionUID = -6064863666142863951L;
 
-    @Column(name = "SCREEN_ID", nullable = false)
+    @Column(name = "SCREEN_ID", nullable = false, unique = true)
     protected String screenId;
 
     @Lob
-    @Column(name = "HELP_TEXT")
-    protected String helpText;
+    @Column(name = "GENERAL_HELP_TEXT")
+    protected String generalHelpText;
+
+    @Lob
+    @Column(name = "KEYBOARD_SHORTCUTS_TEXT")
+    protected String keyboardShortcutsText;
+
+    @Lob
+    @Column(name = "USER_DEFINED_HELP_TEXT")
+    protected String userDefinedHelpText;
+
+    public void setGeneralHelpText(String generalHelpText) {
+        this.generalHelpText = generalHelpText;
+    }
+
+    public String getGeneralHelpText() {
+        return generalHelpText;
+    }
+
+    public void setKeyboardShortcutsText(String keyboardShortcutsText) {
+        this.keyboardShortcutsText = keyboardShortcutsText;
+    }
+
+    public String getKeyboardShortcutsText() {
+        return keyboardShortcutsText;
+    }
+
+    public void setUserDefinedHelpText(String userDefinedHelpText) {
+        this.userDefinedHelpText = userDefinedHelpText;
+    }
+
+    public String getUserDefinedHelpText() {
+        return userDefinedHelpText;
+    }
+
 
     public void setScreenId(String screenId) {
         this.screenId = screenId;
@@ -24,14 +57,6 @@ public class ContextHelp extends StandardEntity {
 
     public String getScreenId() {
         return screenId;
-    }
-
-    public void setHelpText(String helpText) {
-        this.helpText = helpText;
-    }
-
-    public String getHelpText() {
-        return helpText;
     }
 
 

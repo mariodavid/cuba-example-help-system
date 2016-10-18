@@ -16,10 +16,34 @@
                     datasource="contextHelpDs">
             <column width="250px">
                 <field id="screenId"/>
-                <field id="helpText"
-                       rows="5"/>
             </column>
         </fieldGroup>
+        <accordion height="600px">
+            <tab id="generalHelpTab" caption="msg://generalHelp" spacing="true" margin="true">
+                <richTextArea id="generalHelpTextTextArea"
+                              datasource="contextHelpDs"
+                              property="generalHelpText"
+                              height="100%"
+                              width="100%"/>
+            </tab>
+            <tab id="keyboardShortcutsTab" caption="msg://keyboardShortcuts" spacing="true" margin="true">
+                <richTextArea id="keyboardShortcutsTextTextArea"
+                              datasource="contextHelpDs"
+                              property="keyboardShortcutsText"
+                              height="100%"
+                              width="100%"/>
+            </tab>
+            <tab id="userDefinedHelpTab" caption="msg://userDefinedHelp" spacing="true" margin="true">
+                <richTextArea id="userDefinedHelpTextArea"
+                              datasource="contextHelpDs"
+                              property="userDefinedHelpText"
+                              height="100%"
+                              width="100%"/>
+            </tab>
+
+
+
+        </accordion>
         <frame id="windowActions"
                screen="editWindowActions"/>
     </layout>
