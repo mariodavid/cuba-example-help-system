@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<window xmlns="http://schemas.haulmont.com/cuba/window.xsd"
+        class="com.company.cehs.web.contexthelp.ContextHelpFrame"
+        messagesPack="com.company.cehs.web.contexthelp">
+    <layout expand="helpHbox"
+            spacing="true">
+
+        <vbox id="helpHbox" spacing="true" margin="true">
+            <accordion id="helpAcc" width="100%" height="100%">
+                <tab id="generalHelpTab" caption="msg://generalHelp" spacing="true" margin="true">
+                    <scrollBox width="100%" id="generalHelpScrollBox" height="100%">
+                        <label id="generalHelpLabel" value="" htmlEnabled="true" width="100%"/>
+                    </scrollBox>
+                </tab>
+                <tab id="keyboardShortcutsTab" caption="msg://keyboardShortcuts" spacing="true" margin="true">
+                    <scrollBox width="100%" id="keyboardShortcutScrollBox" height="100%">
+                        <label id="keyboardShortcutLabel" value="" htmlEnabled="true" width="100%"/>
+                    </scrollBox>
+                </tab>
+                <tab id="userDefinedHelpTab" caption="msg://userDefinedHelp" spacing="true" margin="true">
+                    <scrollBox width="100%" id="userDefinedHelpScrollBox" height="100%">
+                        <label id="userDefinedHelpLabel" value="" htmlEnabled="true" width="100%"/>
+                    </scrollBox>
+                </tab>
+
+            </accordion>
+
+        </vbox>
+    </layout>
+</window>

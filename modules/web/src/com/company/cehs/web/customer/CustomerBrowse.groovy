@@ -1,7 +1,7 @@
 package com.company.cehs.web.customer
 
-import com.company.cehs.web.AbstractLookupWithHelp
+import com.haulmont.cuba.gui.components.AbstractLookup
 
-class CustomerBrowse extends AbstractLookupWithHelp {
+class CustomerBrowse extends AbstractLookup {
 
 }

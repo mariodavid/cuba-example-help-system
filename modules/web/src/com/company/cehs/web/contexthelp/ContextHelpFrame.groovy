@@ -1,4 +1,4 @@
-package com.company.cehs.web
+package com.company.cehs.web.contexthelp
 
 import com.company.cehs.entity.ContextHelp
 import com.company.cehs.service.ContextHelpService
@@ -9,7 +9,8 @@ import com.haulmont.cuba.web.toolkit.ui.client.split.SplitPanelDockMode
 
 import javax.inject.Inject
 
-class AbstractLookupWithHelp extends AbstractLookup {
+class ContextHelpFrame extends AbstractFrame {
+
 
     @Inject
     ContextHelpService contextHelpService
@@ -56,8 +57,7 @@ class AbstractLookupWithHelp extends AbstractLookup {
                 }
             }
         }
-        showHelpAction.shortcut = "F1"
-        addAction(showHelpAction)
+        wrappedFrame.addAction(showHelpAction)
     }
 
 

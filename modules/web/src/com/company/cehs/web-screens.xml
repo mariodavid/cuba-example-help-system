@@ -11,4 +11,6 @@
             template="com/company/cehs/web/contexthelp/context-help-edit.xml"/>
     <screen id="cehs$ContextHelp.browse"
             template="com/company/cehs/web/contexthelp/context-help-browse.xml"/>
+    <screen id="cehs$ContextHelpMenu"
+            template="com/company/cehs/web/contexthelp/context-help-frame.xml"/>
 </screen-config>

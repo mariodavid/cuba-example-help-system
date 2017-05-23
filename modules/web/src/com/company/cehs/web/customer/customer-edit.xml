@@ -10,14 +10,20 @@
                     class="com.company.cehs.entity.Customer"
                     view="_local"/>
     </dsContext>
-    <layout expand="windowActions"
+    <layout expand="helpSplit"
             spacing="true">
-        <fieldGroup id="fieldGroup"
-                    datasource="customerDs">
-            <column width="250px">
-                <field id="name"/>
-            </column>
-        </fieldGroup>
+        <split id="helpSplit" width="100%" orientation="horizontal">
+            <fieldGroup id="fieldGroup"
+                        width="100%"
+                        datasource="customerDs">
+                <column width="250px">
+                    <field property="name"/>
+                </column>
+            </fieldGroup>
+
+            <frame id="contextHelpMenuFrame" screen="cehs$ContextHelpMenu"/>
+        </split>
+
         <frame id="windowActions"
                screen="editWindowActions"/>
     </layout>
