@@ -5,7 +5,11 @@ Within the application screens can have a context help that will be displayed on
 
 ## Display context help for screens
 For this to work, the screen has to extend the base class `AbstractLookupWithHelp`.
-See [CustomerBrowse](https://github.com/mariodavid/cuba-example-help-system/blob/master/modules/web/src/com/company/cehs/web/customer/CustomerBrowse.groovy) for an example.
+See [CustomerBrowse.groovy](https://github.com/mariodavid/cuba-example-help-system/blob/master/modules/web/src/com/company/cehs/web/customer/CustomerBrowse.groovy) as well as [customer-browse.xml](https://github.com/mariodavid/cuba-example-help-system/blob/master/modules/web/src/com/company/cehs/web/customer/customer-browse.xml) for an example.
+
+> NOTE: currently the XML content for the actual help menu has to be copied into every screen that wants to use this. The controller code is reused through subclassing.
+> If you have any idea's on improving this, don't hastitate to send a PR.
+
 The result looks like this:
 
 ![Screenshot context help menu](https://github.com/mariodavid/cuba-example-help-system/blob/master/img/context-help-menu.png)
