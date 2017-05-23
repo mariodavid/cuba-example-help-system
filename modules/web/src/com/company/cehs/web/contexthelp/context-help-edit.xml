@@ -15,7 +15,7 @@
         <fieldGroup id="fieldGroup"
                     datasource="contextHelpDs">
             <column width="250px">
-                <field id="screenId"/>
+                <field id="screenId" custom="true"/>
             </column>
         </fieldGroup>
         <accordion height="600px">

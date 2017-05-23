@@ -14,34 +14,61 @@
             </query>
         </collectionDatasource>
     </dsContext>
-    <layout expand="customersTable"
+    <layout expand="helpSplit"
             spacing="true">
-        <filter id="filter"
-                applyTo="customersTable"
-                datasource="customersDs">
-            <properties include=".*"/>
-        </filter>
-        <table id="customersTable"
-               width="100%">
-            <actions>
-                <action id="create"/>
-                <action id="edit"/>
-                <action id="remove"/>
-            </actions>
-            <columns>
-                <column id="name"/>
-            </columns>
-            <rows datasource="customersDs"/>
-            <rowsCount/>
-            <buttonsPanel id="buttonsPanel"
-                          alwaysVisible="true">
-                <button id="createBtn"
-                        action="customersTable.create"/>
-                <button id="editBtn"
-                        action="customersTable.edit"/>
-                <button id="removeBtn"
-                        action="customersTable.remove"/>
-            </buttonsPanel>
-        </table>
+
+
+        <split id="helpSplit" width="100%" orientation="horizontal">
+            <vbox id="tableBox" spacing="true" margin="true" width="100%" height="100%" expand="customersTable">
+                <filter id="filter"
+                        applyTo="customersTable"
+                        datasource="customersDs">
+                    <properties include=".*"/>
+                </filter>
+                <table id="customersTable"
+                       width="100%">
+                    <actions>
+                        <action id="create"/>
+                        <action id="edit"/>
+                        <action id="remove"/>
+                    </actions>
+                    <columns>
+                        <column id="name"/>
+                    </columns>
+                    <rows datasource="customersDs"/>
+                    <rowsCount/>
+                    <buttonsPanel id="buttonsPanel"
+                                  alwaysVisible="true">
+                        <button id="createBtn"
+                                action="customersTable.create"/>
+                        <button id="editBtn"
+                                action="customersTable.edit"/>
+                        <button id="removeBtn"
+                                action="customersTable.remove"/>
+                    </buttonsPanel>
+                </table>
+            </vbox>
+            <vbox id="helpHbox" spacing="true" margin="true" height="100%">
+                <accordion id="helpAcc" width="100%" height="100%">
+                    <tab id="generalHelpTab" caption="msg://generalHelp" spacing="true" margin="true">
+                        <scrollBox width="100%" id="generalHelpScrollBox" height="100%">
+                            <label id="generalHelpLabel" value="" htmlEnabled="true" width="100%"/>
+                        </scrollBox>
+                    </tab>
+                    <tab id="keyboardShortcutsTab" caption="msg://keyboardShortcuts" spacing="true" margin="true">
+                        <scrollBox width="100%" id="keyboardShortcutScrollBox" height="100%">
+                            <label id="keyboardShortcutLabel" value="" htmlEnabled="true" width="100%"/>
+                        </scrollBox>
+                    </tab>
+                    <tab id="userDefinedHelpTab" caption="msg://userDefinedHelp" spacing="true" margin="true">
+                        <scrollBox width="100%" id="userDefinedHelpScrollBox" height="100%">
+                            <label id="userDefinedHelpLabel" value="" htmlEnabled="true" width="100%"/>
+                        </scrollBox>
+                    </tab>
+
+                </accordion>
+
+            </vbox>
+        </split>
     </layout>
 </window>

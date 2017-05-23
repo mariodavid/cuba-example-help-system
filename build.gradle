@@ -1,6 +1,6 @@
 
 buildscript {
-    ext.cubaVersion = '6.3.0.RC2'
+    ext.cubaVersion = '6.5.1'
     repositories {
         maven {
             url 'https://repo.cuba-platform.com/content/groups/work'
@@ -9,14 +9,12 @@ buildscript {
                 password(rootProject.hasProperty('repoPass') ? rootProject['repoPass'] : 'cuba123')
             }
         }
-        
+
     }
     dependencies {
         classpath "com.haulmont.gradle:cuba-plugin:$cubaVersion"
 
-        classpath "com.haulmont.cuba:cuba-global:$cubaVersion"
 
-        
     }
 }
 
@@ -41,6 +39,11 @@ cuba {
         dir = "$project.rootDir/build/tomcat"
     }
 }
+
+dependencies {
+    appComponent("com.haulmont.cuba:cuba-global:$cubaVersion")
+}
+
 
 def hsql = 'org.hsqldb:hsqldb:2.2.9'
 
@@ -75,8 +78,8 @@ configure([globalModule, coreModule, guiModule, webModule]) {
 
 configure(globalModule) {
     task enhance(type: CubaEnhancing)
-    
-    
+
+
 }
 
 configure(coreModule) {
@@ -203,7 +206,7 @@ task restart(dependsOn: ['stop', ':app-core:deploy', ':app-web:deploy'], descrip
 }
 
 task wrapper(type: Wrapper) {
-    gradleVersion = '2.13'
+    gradleVersion = '3.1'
 }
 
 apply from: 'extra.gradle'

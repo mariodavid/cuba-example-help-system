@@ -6,7 +6,7 @@
     <screen id="cehs$Customer.browse"
             template="com/company/cehs/web/customer/customer-browse.xml"/>
     <screen id="mainWindow"
-            template="com/company/cehs/web/mainwindow/ext-mainwindow.xml"/>
+            template="com/company/cehs/web/screens/ext-mainwindow.xml"/>
     <screen id="cehs$ContextHelp.edit"
             template="com/company/cehs/web/contexthelp/context-help-edit.xml"/>
     <screen id="cehs$ContextHelp.browse"
