@@ -1,6 +1,20 @@
 # cuba-example-help-system
-CUBA platform example that allows to show help messages for particular screens
+CUBA platform example that allows to show contextual help for particular screens.
 
-You can add help entries via a CRUD interface (ContextHelp).
+Within the application screens can have a context help that will be displayed on the right of the screen.
 
-With Hotkey F1 in the application you can open the help system on the right side of the application.
+## Display context help for screens
+For this to work, the screen has to extend the base class `AbstractLookupWithHelp`.
+See [CustomerBrowse](https://github.com/mariodavid/cuba-example-help-system/blob/master/modules/web/src/com/company/cehs/web/customer/CustomerBrowse.groovy) for an example.
+The result looks like this:
+
+![Screenshot context help menu](https://github.com/mariodavid/cuba-example-help-system/blob/master/img/context-help-menu.png)
+
+## Managing help content
+
+In order to manage the content of the help, there is an entity (called [ContextHelp](https://github.com/mariodavid/cuba-example-help-system/blob/master/modules/global/src/com/company/cehs/entity/ContextHelp.java))
+which basically has a UI screen for creating and editing the context help.
+
+After the screen is selected, the content can be entered via a RichTextEditor, which makes formatting within the help possible.
+
+![Screenshot context help editor](https://github.com/mariodavid/cuba-example-help-system/blob/master/img/context-help-editor.png)

@@ -66,7 +66,7 @@
                     <label id="welcomeLabel"
                            align="MIDDLE_CENTER"
                            stylename="c-welcome-text"
-                           value="mainMsg://application.welcomeText"
+                           value="msg://welcomeText"
                            width="100%"/>
                 </main:initialLayout>
             </main:workArea>

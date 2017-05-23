@@ -10,7 +10,7 @@
                     class="com.company.cehs.entity.ContextHelp"
                     view="_local"/>
     </dsContext>
-    <layout expand="windowActions"
+    <layout expand="contentAccordion"
             spacing="true">
         <fieldGroup id="fieldGroup"
                     datasource="contextHelpDs">
@@ -18,7 +18,7 @@
                 <field id="screenId" custom="true"/>
             </column>
         </fieldGroup>
-        <accordion height="600px">
+        <accordion id="contentAccordion">
             <tab id="generalHelpTab" caption="msg://generalHelp" spacing="true" margin="true">
                 <richTextArea id="generalHelpTextTextArea"
                               datasource="contextHelpDs"
