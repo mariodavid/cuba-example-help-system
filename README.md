@@ -7,8 +7,8 @@ Within the application screens can have a context help that will be displayed on
 For this to work, the screen has to extend the base class `AbstractLookupWithHelp`.
 See [CustomerBrowse.groovy](https://github.com/mariodavid/cuba-example-help-system/blob/master/modules/web/src/com/company/cehs/web/customer/CustomerBrowse.groovy) as well as [customer-browse.xml](https://github.com/mariodavid/cuba-example-help-system/blob/master/modules/web/src/com/company/cehs/web/customer/customer-browse.xml) for an example.
 
-> NOTE: currently the XML content for the actual help menu has to be copied into every screen that wants to use this. The controller code is reused through subclassing.
-> If you have any idea's on improving this, don't hastitate to send a PR.
+> The XML includes a frame that has to be included into the screens that want to use the context help. Additionally it is currently required to create a split [e.g. here](https://github.com/mariodavid/cuba-example-help-system/blob/master/modules/web/src/com/company/cehs/web/customer/customer-browse.xml#L19) that will be used by the frame.
+> If you have any optimisation tips, don't hasitate to send a PR.
 
 The result looks like this:
 
